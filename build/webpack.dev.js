@@ -6,9 +6,10 @@ const webpack = require('webpack');
 
 module.exports = merge(base, {
   mode: 'development',
+  devtool: 'eval-cheap-module-source-map',
   devServer: {
     open: true,
-    // hot: true,
+    hot: true,
   },
   devtool: 'eval-cheap-module-source-map',
   plugins: [

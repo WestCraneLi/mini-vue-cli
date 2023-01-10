@@ -48,7 +48,7 @@ module.exports = {
         test: /\.js$/,
         // 排除node_modules中的js
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['babel-loader', 'thread-loader'],
       },
       {
         test: /\.vue$/,

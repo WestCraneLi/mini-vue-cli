@@ -1,6 +1,10 @@
 const { merge } = require('webpack-merge');
 const base = require('./webpack.base');
 const webpack = require('webpack');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = merge(base, {
   mode: 'production',
@@ -16,5 +20,25 @@ module.exports = merge(base, {
         },
       },
     }),
+    // gzip
+    new CompressionPlugin({
+      algorithm: 'gzip',
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
   ],
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(), // 去重压缩css
+      new TerserPlugin({
+        // 压缩JS代码
+        terserOptions: {
+          compress: {
+            drop_console: true, // 去除console
+          },
+        },
+      }), // 压缩JavaScript
+      new BundleAnalyzerPlugin(),
+    ],
+  },
 });
