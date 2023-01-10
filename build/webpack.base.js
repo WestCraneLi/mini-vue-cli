@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const chalk = require('chalk');
+
 module.exports = {
   mode: 'development',
   entry: {
@@ -18,8 +19,6 @@ module.exports = {
     // 路径别名
     alias: {
       '@': path.resolve('./src'),
-      assets: '~/assets',
-      tools: '~/tools',
     },
     // 引入文件时省略后缀
     extensions: ['.js', '.ts', '.less', '.vue'],
@@ -74,8 +73,4 @@ module.exports = {
       )} (:elapsed seconds)`,
     }),
   ],
-  devServer: {
-    port: 8080,
-    open: true,
-  },
 };
