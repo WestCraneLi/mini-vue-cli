@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack server --config ./build/webpack.dev",
-    "build": "webpack --config ./build/webpack.prod"
+    "build": "webpack --config ./build/webpack.prod",
+    "eslint": "eslint ./src",
+    "lint:style": "stylelint src/**/*.scss --fix",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "author": "",
   "license": "ISC",
@@ -14,12 +18,23 @@
     "@babel/core": "^7.20.12",
     "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "^7.20.2",
+    "@commitlint/cli": "^17.4.1",
+    "@commitlint/config-conventional": "^17.4.0",
     "@vue/babel-preset-jsx": "^1.4.0",
     "babel-loader": "^9.1.2",
     "compression-webpack-plugin": "^10.0.0",
     "css-minimizer-webpack-plugin": "^4.2.2",
+    "eslint-plugin-prettier": "^4.2.1",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.2",
     "progress-bar-webpack-plugin": "^2.1.0",
+    "stylelint": "^14.16.1",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-order": "^6.0.1",
+    "stylelint-webpack-plugin": "^3.3.0",
     "terser-webpack-plugin": "^5.3.6",
     "thread-loader": "^3.0.4",
     "vue": "^2.6.14",
@@ -34,6 +49,10 @@
   "dependencies": {
     "css": "^3.0.0",
     "css-loader": "^6.7.3",
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^2.7.2",
     "url-loader": "^4.1.1"
   }
