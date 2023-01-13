@@ -1,7 +1,7 @@
 # 介绍
 从0到1用webpack5搭建一个vue2的cli
 # 安装
-* ```npm init```
+* ```npm install```
 # 运行
 * ```npm run dev``` ：开发环境运行
 * ```npm run build``` : 生产环境运行
